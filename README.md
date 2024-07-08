@@ -1,8 +1,14 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/Y8bW3OQP)
-# Exam #1: "Ticketinge System"
-## Student: s329581 Mirra Federico 
-
-## React Client Application Routes
+## Run the application:
+- execute in client, server and server2 directories:
+  ```
+  npm ci
+  ```
+- execute:
+  ```
+  npm run dev         // only in client directory 
+  node index.js       // in server and server2 directory
+  
+## React Client Application Routes (nodejs)
 
 - Route `/`: Home page, shows the list of all tickets. Logged in users can add tickets, edit tickets' state (from OPEN to CLOSE) owned by them  and see and add additional blocks to any tickets. Logged in user with admin level, in addition, can close and re-OPEN tickets and change category (even if they're not the owner). 
 - Route `/login`: login form, allow users to login. After a successful login, the user is redirected to the main route ("/")
