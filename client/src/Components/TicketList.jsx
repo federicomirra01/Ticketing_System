@@ -264,7 +264,6 @@ function ModalButton(props) {
                 description: description,
                 ticketId: props.ticket.id
             };
-            ticketBlock.timestamp = dayjs().format('YYYY-MM-DD hh:mm:ss A');
             props.onHide(); // hide the modal button
             addTicketBlock(ticketBlock); // add ticket block
             setDescription('');

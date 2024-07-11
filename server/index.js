@@ -103,7 +103,6 @@ app.post('/api/tickets', isLoggedIn, [
   check('category').isIn(Object.values(Categories)).withMessage('Invalid category value'),
   check('title').isLength({ min: 1, max: maxTitleLength }).withMessage(`Title length must be between 1 and ${maxTitleLength}`),
   check('initialTextBlock').trim().isLength({ min: 1, max: maxBlockDescriptionLength }).withMessage(`InitialTextBlock length must be between 1 and ${maxBlockDescriptionLength}`),
-  check('timestamp').isLength({ min: 20, max: 26 }).withMessage('Invalid timestamp'),
 ], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty())
@@ -115,7 +114,7 @@ app.post('/api/tickets', isLoggedIn, [
     category: req.body.category,
     id_owner: req.user.id, // user retrived from the session
     title: req.body.title,
-    timestamp: dayjs(req.body.timestamp).format('YYYY-MM-DD hh:mm:ss A'),
+    timestamp: dayjs().format('YYYY-MM-DD hh:mm:ss A'),
   };
 
   const ticketBlock = {
@@ -198,7 +197,6 @@ app.get('/api/textBlocks/:ticketId', isLoggedIn, [
 app.post('/api/textBlocks', isLoggedIn, [
   check('ticketId').isInt({ min: 1 }).withMessage('Invalid ticket'),
   check('description').trim().isLength({ min: 1, max: maxBlockDescriptionLength }).withMessage(`Description length must be between 1 and ${maxBlockDescriptionLength}`),
-  check('timestamp').isLength({ min: 20, max: 26 }).withMessage('Invalid timestamp')
 ], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty())
@@ -216,7 +214,7 @@ app.post('/api/textBlocks', isLoggedIn, [
       ticketId: req.body.ticketId,
       ownerId: req.user.id, //retrieved from session
       description: req.body.description,
-      timestamp: req.body.timestamp
+      timestamp: dayjs().format('YYYY-MM-DD hh:mm:ss A')
     }
    
     const result = await ticketDao.createTicketTextBlock(text_block) // return the new created ID

@@ -160,7 +160,6 @@ function App() {
     try {
       delete ticket.id;
       delete ticket.estimationTime;
-      ticket.timestamp = dayjs().format('YYYY-MM-DD hh:mm:ss A'); //timestamp of ticket computed at submission time
       await API.addTicket(ticket, initiaTextBlock);
       setDirty(true);
     } catch (err) {
