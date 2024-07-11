@@ -8,7 +8,6 @@ import './App.css'
 import { LoginForm } from './Components/Auth.jsx';
 import { TicketForm } from './Components/TicketForm.jsx';
 import { TicketList } from './Components/TicketList.jsx';
-import dayjs from 'dayjs';
 
 function App() {
   /* list of tickets */
