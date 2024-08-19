@@ -8,7 +8,8 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const jsonwebtoken = require('jsonwebtoken');
-const jwt_secret = '08e768dc855236dd76764f751ce84ff37b35f349c495afa24c3b874c211fff24'; // 256 bits secret
+const jwt_secret = '08e768dc855236dd76764f751ce84ff37b35f349c495afa24c3b874c211fff24'; // 256 bits secret shared with server 2 
+// provided in clear only for simplicity (it is a project for an exam)
 const expireTime = 300; // for debugging
 
 // init express and middlewares' set-up
